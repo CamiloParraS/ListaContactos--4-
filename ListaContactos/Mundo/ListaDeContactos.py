@@ -38,12 +38,12 @@ class ListaDeContactos:
     def agregarContacto(self, nombre, apellido, direccion, correo, telefonos, palabras):
         if self.buscarContacto(nombre, apellido):
             return 0
-        nuevo_contacto = Contacto(nombre, apellido, direccion, correo)
+        nuevoContacto = Contacto(nombre, apellido, direccion, correo)
         for telefono in telefonos:
-            nuevo_contacto.agregarTelefono(telefono)
+            nuevoContacto.agregarTelefono(telefono)
         for palabra in palabras:
-            nuevo_contacto.agregarPalabra(palabra)
-        self.contactos.append(nuevo_contacto)
+            nuevoContacto.agregarPalabra(palabra)
+        self.contactos.append(nuevoContacto)
         return 1
 
     def eliminarContacto(self, nombre, apellido):
@@ -52,12 +52,12 @@ class ListaDeContactos:
             self.contactos.remove(contacto_a_eliminar)
 
     def modificarContacto(self, nombre, apellido, direccion, correo, telefonos, palabras):
-        contacto_a_modificar = self.buscarContacto(nombre, apellido)
-        if contacto_a_modificar:
-            contacto_a_modificar.direccion = direccion
-            contacto_a_modificar.correo = correo
-            contacto_a_modificar.telefonos = telefonos
-            contacto_a_modificar.palabras = palabras
+        contactoAModificar = self.buscarContacto(nombre, apellido)
+        if contactoAModificar:
+            contactoAModificar.direccion = direccion
+            contactoAModificar.correo = correo
+            contactoAModificar.telefonos = telefonos
+            contactoAModificar.palabras = palabras
 
     def actualizarTelefonos(self, telefonos, contacto):
         contacto.telefonos = telefonos  
